@@ -1,18 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import { Routes, Route, Link } from "react-router-dom";
+import Fetch from './fetch';
 
 function App() {
-  const [arabic, setArabic] = useState();
-  fetch('https://raw.githubusercontent.com/Balagha/dhikr/main/public/data/dhikr.json')
-.then((response) => response.json())
-.then((data) => {
-  const s = data.map(x => x.ARABIC);
-  setArabic(s);
-});
   return (
     <div className="App">
-      {arabic}
+      <Routes>
+        <Route path="/" element={<Fetch/>} />
+      </Routes>
     </div>
   );
 }
