@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const map = (array, fn) => {
   const secondArray = [];
@@ -14,8 +14,8 @@ const map = (array, fn) => {
 
 function Fetch() {
   const [bangla, setBangla] = useState();
-
-  fetch('https://raw.githubusercontent.com/Balagha/dhikr/main/public/data/dhikr.json')
+  useEffect(()=>{
+    fetch('https://raw.githubusercontent.com/Balagha/dhikr/main/public/data/dhikr.json')
     .then((response) => response.json())
     .then((data) => {
       const s = map(data, (x, i) => 
@@ -26,6 +26,8 @@ function Fetch() {
       </div>);
       setBangla(s);
     });
+  }, []);
+  
   return (
 
     <div className='flex flex-row w-full h-full'>
