@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { Routes, Route, Link } from "react-router-dom";
-import Fetch from './fetch';
+import Fetch from './Fetch';
 
 function App() {
   return (
