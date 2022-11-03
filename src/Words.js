@@ -12,19 +12,20 @@ const map = (array, fn) => {
   return secondArray;
 }
 
-function Fetch() {
-  const [bangla, setBangla] = useState();
+function Words() {
+const [english, setEnglish] = useState();
   useEffect(()=>{
-    fetch('https://raw.githubusercontent.com/Balagha/dhikr/main/public/data/dhikr.json')
+    fetch('https://raw.githubusercontent.com/Balagha/dhikr/main/public/data/words.json')
     .then((response) => response.json())
     .then((data) => {
+        console.log(data);
       const s = map(data, (x, i) => 
       <div className='flex'>{i + 1} :
-        <p className='text-lg text-red-500 mr-10 text-justify-left'>{x.ARABIC}:</p>
-        <p className='text-lg mr-10'>({x.BANGLA_UCCHARON})</p>
-        <p className='text-lg text-blue-600 mr-10'>{x.BANGLA_ORTHO}</p>
+        <p className='text-lg text-red-500 mr-10 text-left pl-5'>{x[0]}:</p>
+        <p className='text-lg mr-10 text-justify'>({x[1]})</p>
+        
       </div>);
-      setBangla(s);
+      setEnglish(s);
     });
   }, []);
   
@@ -34,7 +35,7 @@ function Fetch() {
       <div className='w-2/12 h-full'></div>
       <div className='w-8/12 h-full '>
 
-        {bangla}
+        {english}
 
       </div>
       <div className='w-2/12 h-full'></div>
@@ -42,4 +43,4 @@ function Fetch() {
 
   )
 }
-export default Fetch;
+export default Words;
