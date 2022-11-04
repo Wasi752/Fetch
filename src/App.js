@@ -5,6 +5,7 @@ import Fetch from './Fetch';
 import Words from './Words';
 import ApiFilter from './ApiFilter';
 import Posts from './post';
+import Pagination from './Pagination';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/fetch" element={<Fetch/>} />
         <Route path="/filter" element={<ApiFilter/>} />
         <Route path="/posts" element={<Posts/>} />
+        <Route path="/pagination" element={<Pagination/>} />
       </Routes>
     </div>
   );
